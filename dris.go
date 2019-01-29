@@ -157,5 +157,5 @@ func main() {
 
 	}
 
-	log.Println("Image size: ", imageSize)
+	log.Println("Image size: ", ByteCountBinary(imageSize))
 }
