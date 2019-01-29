@@ -80,15 +80,18 @@ func ByteCountBinary(b int64) string {
 
 func main() {
 
-  arg := os.Args[len(os.Args)-1] // Last arg
+  lastArg := os.Args[len(os.Args)-1] // Last arg
 
-	u, err := url.Parse(arg)
+  remoteImage := "https://" + lastArg
+
+	u, err := url.Parse(remoteImage)
 	if err != nil {
 
 	}
 
-	fullImageUrl := fmt.Sprintf("%s://%s/v2/%s", u.Scheme, u.Host, u.Path)
+	fullImageUrl := fmt.Sprintf("%s://%s/v2%s", u.Scheme, u.Host, u.Path)
 	log.Println("FullImageURL:", fullImageUrl)
+
 
 
 	user := os.Getenv("DOCKER_USERNAME")
